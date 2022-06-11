@@ -13,6 +13,7 @@ export const SideListItem: React.FC<{
         backgroundColor: selected ? '#F9FAFE' : '',
         display: 'flex',
         alignItems: 'center',
+        fontWeight: selected ? 600 : '',
       }}
     >
       {children}

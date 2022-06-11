@@ -5,7 +5,15 @@ import AccountIcon from '../icons/account.svg?component'
 const UserName: React.FC<{
   name: string
 }> = ({ name }) => {
-  return <span>{name}</span>
+  return (
+    <span
+      css={{
+        fontWeight: 500,
+      }}
+    >
+      {name}
+    </span>
+  )
 }
 
 export const TheNavBar: React.FC = () => {

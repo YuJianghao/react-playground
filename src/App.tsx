@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom'
 import { TheSideMenu } from './components/TheSideMenu'
 import { TheNavBar } from './components/TheNavBar'
 import { TheSideList } from './components/TheSideList'
@@ -20,6 +21,7 @@ export const App: React.FC = () => {
       >
         <TheSideMenu />
         <TheSideList/>
+        <Outlet/>
       </div>
     </div>
   )

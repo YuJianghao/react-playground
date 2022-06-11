@@ -30,6 +30,8 @@ export const SideMenuItem: React.FC<{
         <span
           css={{
             marginTop: '10px',
+            fontSize: '14px',
+            fontWeight: 500,
           }}
         >
           {label}
