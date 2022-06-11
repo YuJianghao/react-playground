@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
-import FactoryIcon from './icons/factory.svg?component'
 import { Drawer } from './components/Drawer'
 import { useHandler } from './hooks/useHandler'
+import { TheNavBar } from './components/TheNavbar'
 
 export const App: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,17 +11,7 @@ export const App: React.FC = () => {
   const close = useHandler(() => setIsOpen(false))
   return (
     <>
-      <h1>
-        hi from React with{' '}
-        <span
-          css={{
-            color: 'red',
-          }}
-        >
-          Emotion CSS
-        </span>
-        <FactoryIcon />
-      </h1>
+      <TheNavBar />
       <nav>
         <Link to="/page1">page1</Link> - <Link to="/page2">page2</Link>
       </nav>
