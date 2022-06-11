@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+import { useClickOutside } from '../hooks/useClickOutside'
 import DropdownIcon from '../icons/dropdown.svg?component'
 export interface ISelectOption {
   value: string
@@ -18,8 +19,13 @@ export const Select: React.FC<{
   setValue = () => {},
 }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const containerRef = useRef<HTMLDivElement | null>()
+  useClickOutside(containerRef, () => {
+    setIsOpen(false)
+  })
   return (
     <div
+      ref={el => (containerRef.current = el)}
       css={{
         position: 'relative',
         display: 'inline-block',
