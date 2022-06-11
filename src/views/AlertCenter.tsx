@@ -30,6 +30,7 @@ export const AlertCenter: React.FC = () => {
     setCurrentId(id)
     setIsOpen(true)
   })
+  const onClear = useHandler(() => setLevel(''))
   return (
     <div
       css={{
@@ -71,7 +72,7 @@ export const AlertCenter: React.FC = () => {
               marginLeft: '16px',
             }}
           >
-            <Link>Clear Filter</Link>
+            <Link onClick={onClear}>Clear Filter</Link>
           </div>
         </div>
         <div>
