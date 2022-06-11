@@ -1,5 +1,7 @@
 import { Link, Outlet } from 'react-router-dom'
 
+import FactoryIcon from './icons/factory.svg?component'
+
 export const App: React.FC = () => {
   return (
     <>
@@ -12,6 +14,7 @@ export const App: React.FC = () => {
         >
           Emotion CSS
         </span>
+        <FactoryIcon/>
       </h1>
       <nav>
         <Link to="/page1">page1</Link> - <Link to="/page2">page2</Link>
