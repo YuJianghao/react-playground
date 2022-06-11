@@ -1,5 +1,6 @@
 import { TheSideMenu } from './components/TheSideMenu'
 import { TheNavBar } from './components/TheNavBar'
+import { TheSideList } from './components/TheSideList'
 
 export const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ export const App: React.FC = () => {
         }}
       >
         <TheSideMenu />
+        <TheSideList/>
       </div>
     </div>
   )
