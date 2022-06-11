@@ -54,7 +54,7 @@ const Info: React.FC<{
           flexWrap: 'wrap',
         }}
       >
-        <InfoItem width="40%" title="Location" content="Production Line 3" />
+        <InfoItem width="40%" title="Location" content={item.location} />
         <InfoItem
           width="60%"
           title="Creation type"

@@ -5,7 +5,7 @@ import { Badge, SeverityBadge } from './Badge'
 import { Link } from './Link'
 
 export const AlertItem: React.FC<{
-  item: Pick<IAlertItem, 'id' | 'error' | 'type' | 'title' | 'date' | 'content'>
+  item: IAlertItem
   onSolvedClick?: (id: string) => void
 }> = ({ item, onSolvedClick = noop }) => {
   return (
@@ -46,7 +46,7 @@ export const AlertItem: React.FC<{
               marginLeft: '8px',
             }}
           >
-            {item.title}
+            {`${item.factory} · ${item.location}`}
           </span>
         </div>
         <div css={{ color: '#999999', marginTop: '14px' }}>{item.date}</div>
