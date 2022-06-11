@@ -17,6 +17,7 @@ export const App: React.FC = () => {
         css={{
           flex: 1,
           display: 'flex',
+          height: 0,
         }}
       >
         <TheSideMenu />
