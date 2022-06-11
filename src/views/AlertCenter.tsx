@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { AlertItem } from '../components/AlertItem'
 import { Breadcrumb } from '../components/Breadcrumb'
+import { Link } from '../components/Link'
 import { PageTitle } from '../components/PageTitle'
 import type { ISelectOption } from '../components/Select'
 import { Select } from '../components/Select'
@@ -42,6 +43,7 @@ export const AlertCenter: React.FC = () => {
           css={{
             display: 'flex',
             gap: '16px',
+            alignItems: 'center',
           }}
         >
           <Select width="220px" name="Group" />
@@ -53,10 +55,17 @@ export const AlertCenter: React.FC = () => {
             setValue={onSelectChange}
             name="Severity"
           />
+          <div
+            css={{
+              marginLeft: '16px',
+            }}
+          >
+            <Link>Clear Filter</Link>
+          </div>
         </div>
         <div>
           {alerts.map((item, index) => (
-            <AlertItem key={index} item={item}/>
+            <AlertItem key={index} item={item} />
           ))}
         </div>
       </div>

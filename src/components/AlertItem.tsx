@@ -1,5 +1,6 @@
 import React from 'react'
 import { Badge } from './Badge'
+import { Link } from './Link'
 export interface IAlertItem {
   type: 'Critical' | 'Medium' | 'Low'
   error: string
@@ -56,20 +57,13 @@ export const AlertItem: React.FC<{
             {item.title}
           </span>
         </div>
-        <div css={{ color: '#999999', marginTop: '14px' }}>
-          {item.date}
-        </div>
+        <div css={{ color: '#999999', marginTop: '14px' }}>{item.date}</div>
         <div css={{ color: '#999999', marginTop: '8px', lineHeight: '22px' }}>
           {item.content}
         </div>
       </div>
-      <div
-        css={{
-          color: '#145AC3',
-          fontWeight: 500,
-        }}
-      >
-        Mark As Solved
+      <div>
+        <Link>Mark As Solved</Link>
       </div>
     </div>
   )
