@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { AlertItem } from '../components/AlertItem'
 import { Breadcrumb } from '../components/Breadcrumb'
+import { Drawer } from '../components/Drawer'
 import { Link } from '../components/Link'
+import { MarkAsSolved } from '../components/MarkAsSolved'
 import { PageTitle } from '../components/PageTitle'
 import type { ISelectOption } from '../components/Select'
 import { Select } from '../components/Select'
@@ -16,12 +18,18 @@ const options: ISelectOption[] = [
 
 export const AlertCenter: React.FC = () => {
   const [level, setLevel] = useState('')
+  const [isOpen, setIsOpen] = useState(false)
+  const [currentId, setCurrentId] = useState('')
   const onSelectChange = useHandler((value: string) => {
     setLevel(value)
   })
   const filtedItems = level
     ? alerts.filter(item => item.type === level)
     : alerts
+  const onSolvedClick = useHandler((id: string) => {
+    setCurrentId(id)
+    setIsOpen(true)
+  })
   return (
     <div
       css={{
@@ -68,10 +76,13 @@ export const AlertCenter: React.FC = () => {
         </div>
         <div>
           {filtedItems.map((item, index) => (
-            <AlertItem key={index} item={item} />
+            <AlertItem key={index} item={item} onSolvedClick={onSolvedClick} />
           ))}
         </div>
       </div>
+      <Drawer width="500px" isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        {currentId && <MarkAsSolved id={currentId}/>}
+      </Drawer>
     </div>
   )
 }

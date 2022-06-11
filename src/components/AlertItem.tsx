@@ -1,21 +1,19 @@
 import React from 'react'
+import type { IAlertItem } from '../fixture'
+import { noop } from '../utils'
 import { Badge } from './Badge'
 import { Link } from './Link'
-export interface IAlertItem {
-  type: 'Critical' | 'Medium' | 'Low'
-  error: string
-  title: string
-  date: string
-  content: string
-}
+
 const COLOR_MAP: Record<IAlertItem['type'], string> = {
   Critical: '#AB0D16',
   Medium: '#FF7715',
   Low: '#1EC9EF',
 }
+
 export const AlertItem: React.FC<{
-  item: IAlertItem
-}> = ({ item }) => {
+  item: Pick<IAlertItem, 'id' | 'error' | 'type' | 'title' | 'date' | 'content'>
+  onSolvedClick?: (id: string) => void
+}> = ({ item, onSolvedClick = noop }) => {
   return (
     <div
       css={{
@@ -63,7 +61,7 @@ export const AlertItem: React.FC<{
         </div>
       </div>
       <div>
-        <Link>Mark As Solved</Link>
+        <Link onClick={() => onSolvedClick(item.id)}>Mark As Solved</Link>
       </div>
     </div>
   )

@@ -1,7 +1,14 @@
-import type { IAlertItem } from './components/AlertItem'
-
+export interface IAlertItem {
+  id: string
+  type: 'Critical' | 'Medium' | 'Low'
+  error: string
+  title: string
+  date: string
+  content: string
+}
 export const alerts: IAlertItem[] = [
   {
+    id: '1',
     type: 'Critical',
     error: 'Network Error',
     title: 'Shanghai Factory · Production Line 2',
@@ -10,6 +17,7 @@ export const alerts: IAlertItem[] = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
   {
+    id: '2',
     type: 'Medium',
     error: 'Network Alert',
     title: 'Nickname of this group · Production Line A1',
@@ -18,6 +26,7 @@ export const alerts: IAlertItem[] = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
   {
+    id: '3',
     type: 'Low',
     error: 'Network Update',
     title: 'Nickname of this group · Production Line A2',
@@ -26,3 +35,7 @@ export const alerts: IAlertItem[] = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
 ]
+
+export function getAlertById(id: string) {
+  return alerts.find(item => item.id === id)!
+}
