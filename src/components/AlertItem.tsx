@@ -1,14 +1,8 @@
 import React from 'react'
 import type { IAlertItem } from '../fixture'
 import { noop } from '../utils'
-import { Badge } from './Badge'
+import { Badge, SeverityBadge } from './Badge'
 import { Link } from './Link'
-
-const COLOR_MAP: Record<IAlertItem['type'], string> = {
-  Critical: '#AB0D16',
-  Medium: '#FF7715',
-  Low: '#1EC9EF',
-}
 
 export const AlertItem: React.FC<{
   item: Pick<IAlertItem, 'id' | 'error' | 'type' | 'title' | 'date' | 'content'>
@@ -30,7 +24,7 @@ export const AlertItem: React.FC<{
           width: '70px',
         }}
       >
-        <Badge color={COLOR_MAP[item.type]}>{item.type}</Badge>
+        <SeverityBadge type={item.type}/>
       </div>
       <div
         css={{
