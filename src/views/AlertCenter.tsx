@@ -19,6 +19,9 @@ export const AlertCenter: React.FC = () => {
   const onSelectChange = useHandler((value: string) => {
     setLevel(value)
   })
+  const filtedItems = level
+    ? alerts.filter(item => item.type === level)
+    : alerts
   return (
     <div
       css={{
@@ -64,7 +67,7 @@ export const AlertCenter: React.FC = () => {
           </div>
         </div>
         <div>
-          {alerts.map((item, index) => (
+          {filtedItems.map((item, index) => (
             <AlertItem key={index} item={item} />
           ))}
         </div>
