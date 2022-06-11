@@ -1,8 +1,8 @@
-import React from "react"
-import ReactDOM from "react-dom/client"
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom"
-import { Page1 } from "./pages/page1"
-import { Page2 } from "./pages/page2"
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { Page1 } from './pages/page1'
+import { Page2 } from './pages/page2'
 
 const App: React.FC = () => {
   return (
@@ -15,7 +15,7 @@ const App: React.FC = () => {
   )
 }
 
-ReactDOM.createRoot(document.getElementById("app")!).render(
+ReactDOM.createRoot(document.getElementById('app')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
@@ -24,5 +24,5 @@ ReactDOM.createRoot(document.getElementById("app")!).render(
         <Route path="page2" element={<Page2 />} />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 )
