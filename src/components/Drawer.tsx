@@ -1,6 +1,7 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
 import { usePortalRoot } from '../hooks/usePortalRoot'
+import CloseIcon from '../icons/close.svg?component'
 
 export const Drawer: React.FC<{
   isOpen: boolean
@@ -11,13 +12,11 @@ export const Drawer: React.FC<{
   const { portalRootRef } = usePortalRoot('drawer')
   return createPortal(
     <div
-      className={'drawer-container'}
       css={{
         pointerEvents: isOpen ? 'auto' : 'none',
       }}
     >
       <div
-        className="backdrop"
         css={{
           position: 'fixed',
           top: 0,
@@ -31,7 +30,6 @@ export const Drawer: React.FC<{
         onClick={onClose}
       />
       <div
-        className="drawer"
         css={{
           background: '#fff',
           width,
@@ -46,6 +44,17 @@ export const Drawer: React.FC<{
         }}
       >
         {children}
+        <div
+          css={{
+            position: 'absolute',
+            top: 39,
+            right: 28,
+            cursor: 'pointer',
+          }}
+          onClick={onClose}
+        >
+          <CloseIcon />
+        </div>
       </div>
     </div>,
     portalRootRef.current,
