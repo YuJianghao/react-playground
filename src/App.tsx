@@ -1,7 +1,7 @@
-import { Outlet } from 'react-router-dom'
 import { TheSideMenu } from './components/TheSideMenu'
 import { TheNavBar } from './components/TheNavBar'
 import { TheSideList } from './components/TheSideList'
+import { AlertCenter } from './views/AlertCenter'
 
 export const App: React.FC = () => {
   return (
@@ -22,7 +22,7 @@ export const App: React.FC = () => {
       >
         <TheSideMenu />
         <TheSideList/>
-        <Outlet/>
+        <AlertCenter/>
       </div>
     </div>
   )
